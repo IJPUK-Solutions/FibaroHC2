@@ -181,9 +181,9 @@ function parseMessages(response)
                         gvName = mv.matchValue
                     elseif mv.variableName == "value" then
                         gvValue = mv.matchValue
-                    elseif mv.variableName == "JoHome" and id == lastId and type == "setPresence" then
+                    elseif mv.variableName == "JoeHome" and type == "setPresence" then
                         success = setPresenceValue(mv.variableName, mv.matchValue)
-                    elseif mv.variableName == "IanHome" and id == lastId and type == "setPresence" then
+                    elseif mv.variableName == "TinaHome" and type == "setPresence" then
                         success = setPresenceValue(mv.variableName, mv.matchValue)
                     end                   
                 end
