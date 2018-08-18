@@ -208,7 +208,7 @@ end
 
 -- Send request to find messages on the POP / IMAP email server
 function getMessages()
-    sendRequest("/api/v1/message/searchv2", "POST", {
+    sendRequest("/api/v1/message/search", "POST", {
         ['Authorization'] = "Bearer " .. token,
         ['apikey'] = ijpukApiKey,
         ['Content-Type'] = "application/json"
