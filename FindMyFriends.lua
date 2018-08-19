@@ -240,8 +240,10 @@ function authenticate(err)
     function(response)
         fibaro:debug("Logged in")
         local result = decode(response.data)
-        token = result.token
-        timeout = 60
+        if (result ~= nil) then
+            token = result.token
+            timeout = 60
+        end
         complete = true
     end, 
     function(response)
