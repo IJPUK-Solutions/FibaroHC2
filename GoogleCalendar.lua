@@ -7,7 +7,7 @@
 --]]
 
 -- should be https but the root certificates on the fibaro have not been updated
-baseUrl = "http://www.ijpuk.com" 
+baseUrl = "http://api.ijpuk.com" 
 
 -- Visit https://www.ijpuk.com to create an account and get your api key
 local ijpukUserName = "Your username here"
