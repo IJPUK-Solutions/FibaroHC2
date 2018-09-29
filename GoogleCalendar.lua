@@ -12,7 +12,7 @@ baseUrl = "http://api.ijpuk.com"
 -- Visit https://www.ijpuk.com to create an account and get your api key
 local ijpukUserName = "Your username here"
 local ijpukPassword = "Your password here"
-local ijpukApiKey = "Your api key here"
+local ijpukMailServerKey = "Your mail server key here"
 local deleteMessageOnceProcessed = true -- Preferable to keep the size of your mail box small and fast.
 
 local message = {
@@ -102,7 +102,7 @@ end
 function deleteMessage(id)
     sendRequest("/api/v1/message/" .. id, "DELETE", {
         ['Authorization'] = "Bearer " .. token,
-        ['apikey'] = ijpukApiKey,
+        ['mailServerKey'] = ijpukMailServerKey,
         ['Content-Type'] = "application/json"
     }, jsonData, 
         function() 
@@ -196,7 +196,7 @@ end
 function getMessages()
     sendRequest("/api/v1/message/search", "POST", {
         ['Authorization'] = "Bearer " .. token,
-        ['apikey'] = ijpukApiKey,
+        ['mailServerKey'] = ijpukMailServerKey,
         ['Content-Type'] = "application/json"
     }, jsonData, parseMessages, authenticate)
 end
