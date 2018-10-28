@@ -107,8 +107,17 @@ function deleteMessage(id)
         function() 
             fibaro:debug("Deleted message: " .. id)
         end, 
-        function() 
+        function(response) 
             fibaro:debug("Failed to delete message: " .. id) 
+            if response ~= nil then
+                if response.status == nil then
+                    fibaro:debug(json.encode(response))
+                elseif response.status == 429 then
+                    fibaro:debug("Too many requests for subscription type - please upgrade")
+                else
+                    fibaro:debug("failed to delete message: " .. response.status)
+                end
+            end
         end
     )
 end
@@ -237,6 +246,8 @@ function authenticate(err)
         if response ~= nil then
             if response.status == nil then
                 fibaro:debug(json.encode(response))
+            elseif response.status == 429 then
+                fibaro:debug("Too many requests for subscription type - please upgrade")
             else
                 fibaro:debug("failed authentication - Check your IJPUK credentials: " .. response.status)
             end
