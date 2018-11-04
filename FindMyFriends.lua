@@ -15,6 +15,11 @@ local ijpukPassword = "Your password here"
 local ijpukMailServerKey = "Your mail server key here"
 local deleteMessageOnceProcessed = true -- Preferable to keep the size of your mail box small and fast.
 
+-- Depending on your subscription type, this is how frequent this scene can poll the service every x minutes
+-- 1 for Premium
+-- 10 for Basic 
+local defaultPollingIntervalInMinutes = 1
+
 local message = {
     ["matchConditions"] = {
         {
@@ -211,7 +216,7 @@ function parseMessages(response)
     else
         fibaro:debug("Status: " .. response.status) 
     end    
-    timeout = 60
+    timeout = 60 * defaultPollingIntervalInMinutes
     complete = true
 end
 
