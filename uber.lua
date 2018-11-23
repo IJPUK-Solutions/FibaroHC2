@@ -7,7 +7,7 @@
 --]]
 
 -- should be https but the root certificates on the fibaro have not been updated
-baseUrl = "http://api.ijpuk.com" 
+baseUrl = "https://api.ijpuk.com" 
 
 -- Visit https://www.ijpuk.com to create an account and get your api key
 local ijpukUserName = "Your username here"
@@ -83,7 +83,8 @@ function sendRequest(url, method, headers, data, next, fail)
             method = method,
             headers = headers,
             data = data,
-            timeout = 5000
+            timeout = 5000,
+            checkCertificate = false
         },
         success = function(response)
             local status = response.status
