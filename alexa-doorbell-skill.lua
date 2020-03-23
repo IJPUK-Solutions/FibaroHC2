@@ -87,9 +87,11 @@ sendRequest("/api/v1/Doorbell/" .. doorbellKey, "POST", {
         fibaro:debug("An error occurred")
         local status = response.status
         if status == 401 then
-            fibaro:debug("Username or password were invalid")
+            fibaro:debug("Username or password were invalid or you need to relink your Amazon device")
         elseif status == 403 then
             fibaro:debug("Missing or expired Premium subscription")
+        else
+            fibaro:debug("An unknown error occurred : " .. status)
         end
     end
 )
