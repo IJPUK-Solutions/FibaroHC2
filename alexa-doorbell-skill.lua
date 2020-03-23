@@ -6,6 +6,8 @@
 %% globals
 --]]
 
+-- The HC3 edition can be found here : https://github.com/IJPUK-Solutions/Alexa-Doorbell-API/blob/master/alexa-doorbell-hc3.lua
+
 baseUrl = "https://api.ijpuk.com"
 
 -- Visit https://www.ijpuk.com to create an account and get your doorbell key
